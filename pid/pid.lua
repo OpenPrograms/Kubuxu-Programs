@@ -43,10 +43,10 @@ pid = {
 function pid:new(save)
   assert(save == nil or type(save) == "table", "If save is specified the it has to be table.")
   
-  o = o or {}
-  setmetatable(o, self)
+  save = save or {}
+  setmetatable(save, self)
   self.__index = self
-  return o
+  return save
 end
 
 -- Exports calibration variables and targeted value.
