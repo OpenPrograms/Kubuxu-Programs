@@ -20,7 +20,7 @@ do
 end
 
 -- all values of the PID controller
--- values with '_' at beggining are considered private and sould not be changed.
+-- values with '_' at beginning are considered private and should not be changed.
 pid = {
   kp = 1,
   ki = 1,
@@ -37,9 +37,9 @@ pid = {
   _Iterm = 0
 }
 
--- Creates new PID controller.
--- Passing table as argument will make it use it as a object base.
--- It allows for convinient saveing and loading of adjucted PID controller.
+-- Creates a new PID controller.
+-- Passing table as an argument will make it used as an object base.
+-- It allows for convinient saving and loading of adjusted PID controller.
 function pid:new(save)
   assert(save == nil or type(save) == "table", "If save is specified the it has to be table.")
   
@@ -56,7 +56,7 @@ end
 
 -- This is main method of PID controller.
 -- After creation of controller you have to set 'target' value in controller table
--- then in loop you should regullarly updet 'input' valie in controller table,
+-- then in loop you should regularly update 'input' value in controller table,
 -- call c:compute() and set 'output' value to the execution system.
 -- c.minout = 0
 -- c.maxout = 100
@@ -67,8 +67,8 @@ end
 --   sleep(0.5)
 -- end
 -- You can limit output range by specifying 'minout' and 'maxout' values in controller table.
--- By passing 'true' to the 'compute' function you will cause controller not to take any actions but only
--- refresh internal variables. It is most usefule if PID controller was disconnected from system.
+-- By passing 'true' to the 'compute' function you will cause controller to not to take any actions but only
+-- refresh internal variables. It is most useful if PID controller was disconnected from the system.
 function pid:compute(waspaused)
   assert(self.input and self.target, "You have to sepecify current input and target before running compute()")
   
