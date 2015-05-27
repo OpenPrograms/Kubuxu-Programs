@@ -16,6 +16,10 @@ do
   if not done then
     socket = nil
   end
+  local done, computer = pcall(require, "computer")
+  if not done then
+    computer = nil
+  end
   seconds = (socket and socket.gettime) or (computer and computer.uptime) or os.time
 end
 
